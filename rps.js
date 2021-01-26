@@ -16,9 +16,11 @@ function playRound(a, b) {
     }else if(a == "rock" && b == "scissors" || a == "scissors" && b == "paper" || a == "paper" && b == "rock" ){
         console.log(`Player chose ${a}, computer chose ${b}`);
         return `You Win! ${a.charAt(0).toUpperCase()+a.slice(1)} beats ${b}`
-    } else {
+    } else if(b == "rock" && a == "scissors" || b == "scissors" && a == "paper" || b == "paper" && a == "rock" ) {
         console.log(`Player chose ${a}, computer chose ${b}`);
         return `You lose! ${b.charAt(0).toUpperCase()+b.slice(1)} beats ${a}!`
+    }else{
+        return "Invalid values, try again!"
     }
   }
   
