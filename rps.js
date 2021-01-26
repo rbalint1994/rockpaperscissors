@@ -1,22 +1,33 @@
 
 const rps = ["rock", "paper", "scissors"]
 
-const playerSelection = prompt("Rock paper or scissors?").toLowerCase();
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
+
+let playerScore = 0;
+let computerScore = 0;
+for(i = 0; i < 5; i++){
+    let playerSelection = prompt("Rock paper or scissors?").toLowerCase();
+    let computerSelection = computerPlay();
+   console.log(playRound(playerSelection, computerSelection));
+}
 
 function playRound(a, b) {
     if(a == b){
         console.log(`Player chose ${a}, computer chose ${b}`);
-        return "It's a tie!"
+        console.log("It's a tie!")
+        return `Player score: ${playerScore}, computer score: ${computerScore}`
     }else if(a == "rock" && b == "scissors" || a == "scissors" && b == "paper" || a == "paper" && b == "rock" ){
         console.log(`Player chose ${a}, computer chose ${b}`);
-        return `You Win! ${a.charAt(0).toUpperCase()+a.slice(1)} beats ${b}`
+        playerScore += 1;
+        console.log(`You Win! ${a.charAt(0).toUpperCase()+a.slice(1)} beats ${b}`)
+        return `Player score: ${playerScore}, computer score: ${computerScore}`
     } else if(b == "rock" && a == "scissors" || b == "scissors" && a == "paper" || b == "paper" && a == "rock" ) {
         console.log(`Player chose ${a}, computer chose ${b}`);
-        return `You lose! ${b.charAt(0).toUpperCase()+b.slice(1)} beats ${a}!`
+        computerScore += 1;
+        console.log(`You lose! ${b.charAt(0).toUpperCase()+b.slice(1)} beats ${a}!`)
+        return `Player score: ${playerScore}, computer score: ${computerScore}`
+        
     }else{
-        return "Invalid values, try again!"
+        return "Invalid value, try again!"
     }
   }
 
