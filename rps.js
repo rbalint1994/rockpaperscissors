@@ -1,8 +1,4 @@
 
-function computerPlay(){
-    let i = Math.floor(Math.random() * 3);
-    return (rps[i])
-}
 const rps = ["rock", "paper", "scissors"]
 
 const playerSelection = prompt("Rock paper or scissors?").toLowerCase();
@@ -23,4 +19,8 @@ function playRound(a, b) {
         return "Invalid values, try again!"
     }
   }
-  
+
+  function computerPlay(){
+    let i = Math.floor(Math.random() * 3);
+    return (rps[i])
+}
